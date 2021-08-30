@@ -8,8 +8,9 @@ on:
 
 jobs:
   build:
+    name: Build and Test on .Net Core
     runs-on: ${{ matrix.os }}
-    strategy: 
+    strategy:
       matrix:
         on: [ubuntu-latest, windows-latest, macOS-latest]
     
