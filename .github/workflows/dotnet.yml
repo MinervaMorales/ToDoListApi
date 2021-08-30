@@ -4,13 +4,16 @@ on:
   push:
     branches: [ master ]
   pull_request:
-    branches: [ master ]
+    branches: [ develop ]
 
 jobs:
-  build:
+  build-and-test:
 
-    runs-on: ubuntu-latest
-
+    runs-on: ${{ matrix.os }}
+    strategy: 
+      matrix:
+        on: [ubuntu-latest, windows-latest, macOS-latest]
+    
     steps:
     - uses: actions/checkout@v2
     - name: Setup .NET Core
